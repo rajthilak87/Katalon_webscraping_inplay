@@ -46,12 +46,13 @@ for (int i=0;i<3;i++)
 	WebUtil.robot.keyPress(KeyEvent.VK_ENTER)
 	WebUtil.robot.keyRelease(KeyEvent.VK_ENTER)
 	WebUtil.robot.keyRelease(KeyEvent.VK_SHIFT)
-	WebUI.delay(2)
+	WebUI.delay(3)
 	WebUI.switchToWindowIndex(1)
-	WebUI.delay(2)
+	WebUI.delay(3)
 	String currentPage = WebUI.getUrl()
 //	print(currentPage)
-
+	try
+	{
 	position_name = WebUI.getText(findTestObject('Object Repository/fetch_url/job_name'))
 //	print(position_name)
 	owner_name = WebUI.getText(findTestObject('Object Repository/fetch_url/owner_name'))
@@ -69,11 +70,17 @@ for (int i=0;i<3;i++)
 //	print(external_url)
 	WebUtil.generateData(testCaseName, testCaseData, currentPage,provider_name,owner_name,position_name,address,external_url,tag1,tag2)
 	WebUI.delay(2)
+	} catch (org.openqa.selenium.NoSuchElementException | com.kms.katalon.core.exception.StepFailedException e) {
+		WebUtil.reportAndtakeScreenshot(testCaseName, testCaseData, 'Tutor add class has error : ' + e.getMessage(), true);
+		WebUI.closeWindowIndex(1);
+		continue; // Break the inner loop and continue with the next iteration of the outer loop
+	}
+	
 	WebUI.closeWindowIndex(1)
-	WebUI.delay(3)
+	WebUI.delay(3)	
 }
 }
 catch (org.openqa.selenium.NoSuchElementException | com.kms.katalon.core.exception.StepFailedException  e)
 {
-	print("Exception is : " + e)
+	WebUtil.reportAndtakeScreenshot(testCaseName, testCaseData, 'Tutor add class has error : ' + e.getMessage(), true)
 }

@@ -35,3 +35,4 @@ for (def row : data)
 		FailureHandling.CONTINUE_ON_FAILURE)
 	}
 WebUtil.generateReport(testCaseName, filterBy)
+WebUI.closeBrowser(FailureHandling.CONTINUE_ON_FAILURE)

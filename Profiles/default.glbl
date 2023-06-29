@@ -11,7 +11,7 @@
    </GlobalVariableEntity>
    <GlobalVariableEntity>
       <description></description>
-      <initValue>'https://www.inplay.org/r/oakland/discover?amenities%5Bscholarship%5D=Deals'</initValue>
+      <initValue>'https://www.inplay.org/r/oakland/discover?terms=Online%2CVirtual'</initValue>
       <name>base_url</name>
    </GlobalVariableEntity>
 </GlobalVariableEntities>
